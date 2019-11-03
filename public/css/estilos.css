@@ -1,0 +1,29 @@
+.fraseParaDigitar {
+    font-size: 20px;
+}
+
+#campoDigitacao {
+    font-size: 20px;
+    height: 130px;
+    text-align: left;
+}
+
+.icones {
+    vertical-align: middle;
+}
+
+.campoDesativado {
+    background-color: lightgray;
+}
+
+.bordaVerde {
+    border: 3px solid green;
+}
+
+.bordaVermelha {
+    border: 3px solid red;
+}
+
+.bordaPreta {
+    border: 3px solid black;
+}
