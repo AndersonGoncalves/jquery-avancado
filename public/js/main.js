@@ -1,13 +1,14 @@
 var campoDigitacao = $("#campoDigitacao");
 var tempoInicial = $("#tempoDigitacao").text();
 
-$(document).ready(function() {    
+$(document).ready(function() {        
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro();
-    inicializaMarcadores();
+    inicializaMarcadores();    
     $("#reiniciaJogo").click(reiniciaJogo);
     campoDigitacao.addClass("bordaPreta");   
+    remover();
 });
 
 function atualizaTamanhoFrase(){
@@ -34,13 +35,9 @@ function inicializaCronometro(){
         let id = setInterval(() => {
             tempoDigitacao--;
             $("#tempoDigitacao").text(tempoDigitacao);
-            if (tempoDigitacao < 1) {
-                campoDigitacao.attr("disabled", true);
+            if (tempoDigitacao < 1) {                
                 clearInterval(id);
-                campoDigitacao.toggleClass("campoDesativado");                
-                campoDigitacao.removeClass("bordaVerde");
-                campoDigitacao.removeClass("bordaVermerlha");
-                campoDigitacao.addClass("bordaPreta");
+                finalizaJogo();                
             }
         }, 1000);
         $("#reiniciaJogo").attr("disabled", true);
@@ -80,4 +77,13 @@ function inicializaMarcadores(){
             }
         }
     });
+}
+
+function finalizaJogo(){
+    campoDigitacao.attr("disabled", true);
+    campoDigitacao.toggleClass("campoDesativado");                
+    campoDigitacao.removeClass("bordaVerde");
+    campoDigitacao.removeClass("bordaVermerlha");
+    campoDigitacao.addClass("bordaPreta");
+    inserePlacar();
 }
